@@ -20,13 +20,13 @@ var users = [
 router.get('/', function(req, res, next) {
   var users = db.User.findAll().then(users => {
     console.log(users);
-    res.render('index', { title: 'Brugere i systemet', users });
+    res.render('frontpage', { title: 'Brugere i systemet', users });
   });
 });
 
 /* GET frontpage. */
-router.get('/frontpage', function(req, res, next) {
-  res.render('frontpage', { title: 'Frontpage' });
+router.get('/index', function(req, res, next) {
+  res.render('index', { title: 'Frontpage' });
 });
 
 module.exports = router;
