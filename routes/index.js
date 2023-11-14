@@ -10,13 +10,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET home page. */
-router.get('/data', function(req, res, next) {
-  db.User.findAll().then(users => {
-    console.log(users);
-    res.render('databaseSearch', { title: 'Database Print Out', users });
-  });
-});
 
 /* POST route for inserting user data */
 router.post('/insertUser', function(req, res, next) {
