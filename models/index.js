@@ -27,8 +27,18 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
+    try {
+      const model = require(path.join(__dirname, file));
+      if (model && typeof model === 'function') {
+        const modelInstance = model(sequelize, Sequelize.DataTypes);
+        db[modelInstance.name] = modelInstance;
+      } else {
+        console.error(`Invalid export in file: ${file}`);
+      }
+    } catch (error) {
+      console.error(`Error loading model from file: ${file}`);
+      console.error(error);
+    }
   });
 
 Object.keys(db).forEach(modelName => {

@@ -7,7 +7,7 @@
     h1 Formular til pakkeinformation
     link(rel="stylesheet", href="/stylesheets/Styles.css")
 
-  form.parcel-form(action="/submit-parcel-info", method="post")
+  form.parcel-form(action="/insertUser", method="post")
     // Afsenders information
     .section
       h2 Afsenders information
@@ -53,4 +53,4 @@
       label(for="parcelValue") Værdi (kr):
       input(type="number", id="parcelValue", name="parcelValue", min="0", step="0.01", required)
 
-    button.submit-button(type="submit") Indsend
+    button(type='submit') Insert User

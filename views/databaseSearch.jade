@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  table
+    tr
+      th Name
+      th Email
+      th Phone
+    - each user in users
+      tr
+        td= user.firstName
+        td= user.email
+        td= user.phone
+  form(action='/insertUser', method='post')
+    label(for='firstName') First Name:
+    input(type='text', name='firstName', id='firstName')
+    br
+    label(for='lastName') Last Name:
+    input(type='text', name='lastName', id='lastName')
+    br
+    label(for='email') Email:
+    input(type='text', name='email', id='email')
+    br
+    button(type='submit') Insert User
