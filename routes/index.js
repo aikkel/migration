@@ -5,9 +5,9 @@ const { Sender, Receiver, Package } = require('../models');
 /* GET home page. */
 indexRouter.get('/', async (req, res, next) => {
   try {
-    const Sender = await Sender.findAll(); // renamed from 'Sender' to 'senders' and 'Senders' to 'Sender'
-    console.log(Sender); // updated to use 'senders'
-    res.render('frontpage', { title: 'Brugere i systemet', Sender }); // updated to use 'senders'
+    const senders = await Sender.findAll(); // renamed from 'Sender' to 'senders'
+    console.log(senders); // updated to use 'senders'
+    res.render('frontpage', { title: 'Brugere i systemet', senders }); // updated to use 'senders'
   } catch (error) {
     console.error('Error fetching senders:', error);
     res.status(500).json({ error: 'Failed to fetch senders' });
