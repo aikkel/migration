@@ -41,6 +41,7 @@ fs
     }
   });
 
+// Add associations here if needed
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);

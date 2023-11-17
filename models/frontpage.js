@@ -1,15 +1,19 @@
+const express = require('express');
+const app = express();
+
+
 // Handle the form submission and insert data into the User table
-app.post('/insertUser', async (req, res) => {
-    try {
-      const { firstName, lastName, email } = req.body; // Extract data from the form fields
-      const newUser = await User.create({ firstName, lastName, email });
-      res.json(newUser);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Failed to insert user' });
-    }
-  });
-  
-  app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-  });
+app.post('/insertSender', async (req, res) => {
+  try {
+    const { firstName, lastName, email, phoneNumber, address } = req.body;
+    const newSender = await Sender.create({ firstName, lastName, email, phoneNumber, address });
+    res.json(newSender);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to insert sender' });
+  }
+});
+
+app.listen(3000, () => {
+console.log('Server is running on port 3000');
+});
