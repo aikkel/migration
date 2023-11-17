@@ -3,11 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var Sender = require('./models/Sender'); // Corrected path
+var Receiver = require('./models/Receiver'); // Corrected path
+const indexRouter = require('./routes/index'); // replace './routes/index' with the actual path to index.js
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var Sender = require('models/Sender.js'); // Import the Sender model
-var Receiver = require('models/Receiver.js'); // Import the Receiver model
+const frontpageRouter = require('./routes/frontpage');
+const databaseSearchRouter = require('./routes/DatabaseSearch');
+
 
 var app = express();
 
@@ -21,20 +23,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', frontpageRouter);
+app.use('/data', databaseSearchRouter);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // Handle the form submission and insert data into the Sender table
 app.post('/insertSender', async (req, res) => {
   try {
     const { FirstName, LastName, Email, Phonenumber, Address } = req.body;
-
     const newSender = await Sender.create({
-      firstName: FirstName,
-      lastName: LastName,
-      email: Email,
-      phoneNumber: Phonenumber,
-      address: Address,
+      FirstName: FirstName,
+      LastName: LastName,
+      Email: Email,
+      PhoneNumber: Phonenumber,
+      Address: Address,
     });
 
     res.json(newSender);
@@ -48,13 +50,12 @@ app.post('/insertSender', async (req, res) => {
 app.post('/insertReceiver', async (req, res) => {
   try {
     const { FirstName, LastName, Email, Phonenumber, Address } = req.body;
-
     const newReceiver = await Receiver.create({
-      firstName: FirstName,
-      lastName: LastName,
-      email: Email,
-      phoneNumber: Phonenumber,
-      address: Address,
+      FirstName: FirstName,
+      LastName: LastName,
+      Email: Email,
+      PhoneNumber: Phonenumber,
+      Address: Address,
     });
 
     res.json(newReceiver);
