@@ -62,3 +62,34 @@
         td= Sender.Phonenumber
         td= Sender.Address
 
+
+        block content
+  h1= title
+  table 
+    tr
+      th ReceiverID
+      th Name
+      th Lastname
+      th Email
+      th Phone
+      th Address
+    - each Receiver in receivers
+      tr
+        td= Receiver.ReceiverID
+        td= Receiver.FirstName
+        td= Receiver.LastName
+        td= Receiver.Email
+        td= Receiver.Phonenumber
+        td= Receiver.Address
+
+        h1= title
+  table 
+    tr
+      th PackageID
+      th WeightInKG
+    
+    - each Package in packages
+      tr
+        td= Package.PackageID
+        td= Package.WeightInKG
+
