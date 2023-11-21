@@ -1,35 +1,95 @@
-// Afsenders information
-.section
-  h2 Afsenders information
-  label(for="FirstName") Fornavn:
-  input(type="text", id="FirstName", name="Sender_FirstName", required)
+<link rel="icon" type="image/x-icon" href="https://github.com/andracs/sendnemt.dk/blob/main/sendnemt.png?raw=true">
+<title>SendNemt</title>
 
-  label(for="LastName") Efternavn:
-  input(type="text", id="LastName", name="Sender_LastName", required)
+.container
+  .header
+    img#logo(src="https://github.com/andracs/sendnemt.dk/blob/main/sendnemt.png?raw=true")
+    h1 Formular til pakkeinformation
+    link(rel="stylesheet", href="/stylesheets/Styles.css")
 
-  label(for="Email") E-mail:
-  input(type="Text", id="Email", name="Sender_Email", required)
+    // Afsenders information
+    .section
+      h2 Afsenders information
+      label(for="FirstName") Fornavn:
+      input(type="text", id="FirstName", name="Sender_FirstName", required)
 
-  label(for="PhoneNumber") Telefonnummer:
-  input(type="Text", id="PhoneNumber", name="Sender_PhoneNumber", required)
+      label(for="LastName") Efternavn:
+      input(type="text", id="LastName", name="Sender_LastName", required)
 
-  label(for="Address") Adresse:
-  textarea(type="Text" id="Address", name="Sender_Address", required)
+      label(for="Email") E-mail:
+      input(type="text", id="Email", name="Sender_Email", required)
 
-// Modtagers information
-.section
-  h2 Modtagers information
-  label(for="FirstName") Fornavn:
-  input(type="text", id="FirstName", name="Receiver_FirstName", required)
+      label(for="PhoneNumber") Telefonnummer:
+      input(type="text", id="PhoneNumber", name="Sender_PhoneNumber", required)
 
-  label(for="LastName") Efternavn:
-  input(type="text", id="LastName", name="Receiver_LastName", required)
+      label(for="Address") Adresse:
+      textarea(type="text", id="Address", name="Sender_Address", required)
 
-  label(for="Email") E-mail:
-  input(type="Text", id="Email", name="Receiver_Email", required)
+    // Modtagers information
+    .section
+      h2 Modtagers information
+      label(for="ReceiverFirstName") Fornavn:
+      input(type="text", id="ReceiverFirstName", name="Receiver_FirstName", required)
 
-  label(for="PhoneNumber") Telefonnummer:
-  input(type="Text", id="PhoneNumber", name="Receiver_PhoneNumber", required)
+      label(for="ReceiverLastName") Efternavn:
+      input(type="text", id="ReceiverLastName", name="Receiver_LastName", required)
 
-  label(for="Address") Adresse:
-  textarea(type="Text" id="Address", name="Receiver_Address", rows=5, required)
+      label(for="ReceiverEmail") E-mail:
+      input(type="text", id="ReceiverEmail", name="Receiver_Email", required)
+
+      label(for="ReceiverPhoneNumber") Telefonnummer:
+      input(type="text", id="ReceiverPhoneNumber", name="Receiver_PhoneNumber", required)
+
+      label(for="ReceiverAddress") Adresse:
+      textarea(type="text", id="ReceiverAddress", name="Receiver_Address", rows=5, required)
+
+    block content
+  h1= title
+  table 
+    tr
+      th SenderID
+      th Name
+      th Lastname
+      th Email
+      th Phone
+      th Address
+    - each Sender in senders
+      tr
+        td= Sender.SenderID
+        td= Sender.FirstName
+        td= Sender.LastName
+        td= Sender.Email
+        td= Sender.Phonenumber
+        td= Sender.Address
+
+
+        block content
+  h1= title
+  table 
+    tr
+      th ReceiverID
+      th Name
+      th Lastname
+      th Email
+      th Phone
+      th Address
+    - each Receiver in receivers
+      tr
+        td= Receiver.ReceiverID
+        td= Receiver.FirstName
+        td= Receiver.LastName
+        td= Receiver.Email
+        td= Receiver.Phonenumber
+        td= Receiver.Address
+
+        h1= title
+  table 
+    tr
+      th PackageID
+      th WeightInKG
+    
+    - each Package in packages
+      tr
+        td= Package.PackageID
+        td= Package.WeightInKG
+
