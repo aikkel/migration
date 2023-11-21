@@ -8,7 +8,6 @@ indexRouter.get('/', async (req, res, next) => {
     const senders = await Sender.findAll(); // renamed from 'Sender' to 'senders'
     const receivers = await Receiver.findAll(); // renamed from 'Sender' to 'senders'
     const packages = await Package.findAll(); // renamed from 'Sender' to 'senders'
-
     console.log(senders, receivers, packages); // updated to use 'senders'
     res.render('frontpage', { title: 'Brugere i systemet', senders, receivers, packages }); // updated to use 'senders'
   } catch (error) {
