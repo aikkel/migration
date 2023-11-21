@@ -43,53 +43,25 @@
       label(for="ReceiverAddress") Adresse:
       textarea(type="text", id="ReceiverAddress", name="Receiver_Address", rows=5, required)
 
-    block content
-  h1= title
-  table 
-    tr
-      th SenderID
-      th Name
-      th Lastname
-      th Email
-      th Phone
-      th Address
-    - each Sender in senders
-      tr
-        td= Sender.SenderID
-        td= Sender.FirstName
-        td= Sender.LastName
-        td= Sender.Email
-        td= Sender.Phonenumber
-        td= Sender.Address
+      <div class="section">
+      <h2>Pakkeinformation</h2>
+      <label for="parcelWeight">Vægt (kg):</label>
+      <input type="number" id="parcelWeight" name="parcelWeight" min="0" step="0.01" required>
+  
+      <label for="parcelDimensions">Mål (Længde i cm):</label>
+      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
 
+      <label for="parcelDimensions">Mål (Bredde i cm):</label>
+      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
 
-        block content
-  h1= title
-  table 
-    tr
-      th ReceiverID
-      th Name
-      th Lastname
-      th Email
-      th Phone
-      th Address
-    - each Receiver in receivers
-      tr
-        td= Receiver.ReceiverID
-        td= Receiver.FirstName
-        td= Receiver.LastName
-        td= Receiver.Email
-        td= Receiver.Phonenumber
-        td= Receiver.Address
-
-        h1= title
-  table 
-    tr
-      th PackageID
-      th WeightInKG
-    
-    - each Package in packages
-      tr
-        td= Package.PackageID
-        td= Package.WeightInKG
-
+      <label for="parcelDimensions">Mål (Højde i cm):</label>
+      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
+  
+      <label for="parcelContents">Indhold:</label>
+      <textarea id="parcelContents" name="parcelContents" required></textarea>
+  
+      <label for="parcelValue">Værdi (kr):</label>
+      <input type="number" id="parcelValue" name="parcelValue" min="0" step="0.01" required>
+      </div>
+      
+    <button type="submit" class="submit-button">Indsend</button>
