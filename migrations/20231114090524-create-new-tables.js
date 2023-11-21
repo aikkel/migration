@@ -7,23 +7,23 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
-        FirstName: {
+        ReceiverFirstName: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        LastName: {
+        ReceiverLastName: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Email: {
+        ReceiverEmail: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Phonenumber: {
+        ReceiverPhonenumber: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Address: {
+        ReceiverAddress: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
@@ -34,23 +34,23 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
-        FirstName: {
+        SenderFirstName: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        LastName: {
+        SenderLastName: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Email: {
+        SenderEmail: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Phonenumber: {
+        SenderPhonenumber: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
-        Address: {
+        SenderAddress: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
@@ -77,7 +77,7 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
         },
-        Content: {
+        PackageContent: { // Updated column name
           type: Sequelize.STRING,
           allowNull: false,
         },
@@ -98,5 +98,3 @@ module.exports = {
     ]);
   },
 };
-
-

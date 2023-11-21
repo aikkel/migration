@@ -7,61 +7,61 @@
     h1 Formular til pakkeinformation
     link(rel="stylesheet", href="/stylesheets/Styles.css")
 
+  form(action='/insertUserInformation', method='post')
     // Afsenders information
     .section
       h2 Afsenders information
-      label(for="FirstName") Fornavn:
-      input(type="text", id="FirstName", name="Sender_FirstName", required)
+      label(for="SenderFirstName") Fornavn:
+      input(type="text", id="SenderFirstName", name="SenderFirstName", required)
 
-      label(for="LastName") Efternavn:
-      input(type="text", id="LastName", name="Sender_LastName", required)
+      label(for="SenderLastName") Efternavn:
+      input(type="text", id="SenderLastName", name="SenderLastName", required)
 
-      label(for="Email") E-mail:
-      input(type="text", id="Email", name="Sender_Email", required)
+      label(for="SenderEmail") E-mail:
+      input(type="text", id="SenderEmail", name="SenderEmail", required)
 
-      label(for="PhoneNumber") Telefonnummer:
-      input(type="text", id="PhoneNumber", name="Sender_PhoneNumber", required)
+      label(for="SenderPhoneNumber") Telefonnummer:
+      input(type="text", id="SenderPhoneNumber", name="SenderPhoneNumber", required)
 
-      label(for="Address") Adresse:
-      textarea(type="text", id="Address", name="Sender_Address", required)
+      label(for="SenderAddress") Adresse:
+      textarea(type="text", id="SenderAddress", name="SenderAddress", required)
 
     // Modtagers information
     .section
       h2 Modtagers information
       label(for="ReceiverFirstName") Fornavn:
-      input(type="text", id="ReceiverFirstName", name="Receiver_FirstName", required)
+      input(type="text", id="ReceiverFirstName", name="ReceiverFirstName", required)
 
       label(for="ReceiverLastName") Efternavn:
-      input(type="text", id="ReceiverLastName", name="Receiver_LastName", required)
+      input(type="text", id="ReceiverLastName", name="ReceiverLastName", required)
 
       label(for="ReceiverEmail") E-mail:
-      input(type="text", id="ReceiverEmail", name="Receiver_Email", required)
+      input(type="text", id="ReceiverEmail", name="ReceiverEmail", required)
 
       label(for="ReceiverPhoneNumber") Telefonnummer:
-      input(type="text", id="ReceiverPhoneNumber", name="Receiver_PhoneNumber", required)
+      input(type="text", id="ReceiverPhoneNumber", name="ReceiverPhoneNumber", required)
 
       label(for="ReceiverAddress") Adresse:
-      textarea(type="text", id="ReceiverAddress", name="Receiver_Address", rows=5, required)
+      textarea(type="text", id="ReceiverAddress", name="ReceiverAddress", rows=5, required)
 
       <div class="section">
       <h2>Pakkeinformation</h2>
-      <label for="parcelWeight">Vægt (kg):</label>
-      <input type="number" id="parcelWeight" name="parcelWeight" min="0" step="0.01" required>
+      <label for="WeightInKG">Vægt (kg):</label>
+      <input type="number" id="PackageWeightInKG" name="PackageWeightInKG" min="0" step="0.01" required>
   
-      <label for="parcelDimensions">Mål (Længde i cm):</label>
-      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
+      <label for="LenghtInCM">Mål (Længde i cm):</label>
+      <input type="text" id="PackageLenghtInCM" name="PackageLenghtInCM" required>
 
-      <label for="parcelDimensions">Mål (Bredde i cm):</label>
-      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
+      <label for="widthInCM">Mål (Bredde i cm):</label>
+      <input type="text" id="PackagewidthInCM" name="PackagewidthInCM" required>
 
-      <label for="parcelDimensions">Mål (Højde i cm):</label>
-      <input type="text" id="parcelDimensions" name="parcelDimensions" required>
+      <label for="HeightInCM">Mål (Højde i cm):</label>
+      <input type="text" id="PackageHeightInCM" name="PackageHeightInCM" required>
   
-      <label for="parcelContents">Indhold:</label>
-      <textarea id="parcelContents" name="parcelContents" required></textarea>
+      <label for="PackageContent">Indhold:</label>
+      <textarea id="PackageContent" name="PackageContent" required></textarea>
   
-      <label for="parcelValue">Værdi (kr):</label>
-      <input type="number" id="parcelValue" name="parcelValue" min="0" step="0.01" required>
+      <label for="WorthInKR">Værdi (kr):</label>
+      <input type="number" id="PackageWorthInKR" name="PackageWorthInKR" min="0" step="0.01" required>
       </div>
-      
-    <button type="submit" class="submit-button">Indsend</button>
+  button(type='submit' class="submit-button")  Indsend

@@ -58,4 +58,14 @@
         td= Package.PackageID
         td= Package.WeightInKG
   
-  <button type="submit" class="submit-button">Indsend</button>
+  form(action='/insertUser', method='post')
+    label(for='firstName') First Name:
+    input(type='text', name='firstName', id='firstName')
+    br
+    label(for='lastName') Last Name:
+    input(type='text', name='lastName', id='lastName')
+    br
+    label(for='email') Email:
+    input(type='text', name='email', id='email')
+    br
+    button(type='submit') Insert User

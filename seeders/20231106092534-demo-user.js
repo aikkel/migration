@@ -5,19 +5,19 @@ module.exports = {
     // Seed Receivers
     await queryInterface.bulkInsert('Receiver', [
       {
-        FirstName: 'Alice',
-        LastName: 'Johnson',
-        Email: 'alice.johnson@example.com',
-        Phonenumber: '5551234567',
-        Address: '789 Pine St, Village',
+        ReceiverFirstName: 'Alice',
+        ReceiverLastName: 'Johnson',
+        ReceiverEmail: 'alice.johnson@example.com',
+        ReceiverPhonenumber: '5551234567',
+        ReceiverAddress: '789 Pine St, Village',
       
       },
       {
-        FirstName: 'Bob',
-        LastName: 'Williams',
-        Email: 'bob.williams@example.com',
-        Phonenumber: '5559876543',
-        Address: '101 Maple St, Hamlet',
+        ReceiverFirstName: 'Bob',
+        ReceiverLastName: 'Williams',
+        ReceiverEmail: 'bob.williams@example.com',
+        ReceiverPhonenumber: '5559876543',
+        ReceiverAddress: '101 Maple St, Hamlet',
        
       },
       // Add more receiver records as needed
@@ -26,19 +26,19 @@ module.exports = {
     // Seed Senders
     await queryInterface.bulkInsert('Sender', [
       {
-        FirstName: 'John',
-        LastName: 'Doe',
-        Email: 'john.doe@example.com',
-        Phonenumber: '1234567890',
-        Address: '123 Main St, City',
+        SenderFirstName: 'John',
+        SenderLastName: 'Doe',
+        SenderEmail: 'john.doe@example.com',
+        SenderPhonenumber: '1234567890',
+        SenderAddress: '123 Main St, City',
       
       },
       {
-        FirstName: 'Jane',
-        LastName: 'Smith',
-        Email: 'jane.smith@example.com',
-        Phonenumber: '9876543210',
-        Address: '456 Oak St, Town',
+        SenderFirstName: 'Jane',
+        SenderLastName: 'Smith',
+        SenderEmail: 'jane.smith@example.com',
+        SenderPhonenumber: '9876543210',
+        SenderAddress: '456 Oak St, Town',
      
       },
       // Add more sender records as needed
@@ -51,7 +51,7 @@ module.exports = {
         LenghtInCM: 30,
         WidthInCM: 20,
         HeightInCM: 10,
-        Content: 'Sample Content 1',
+        PackageContent: 'Sample Content 1',
         WorthInKR: 500,
     
       },
@@ -60,7 +60,7 @@ module.exports = {
         LenghtInCM: 25,
         WidthInCM: 15,
         HeightInCM: 8,
-        Content: 'Sample Content 2',
+        PackageContent: 'Sample Content 2',
         WorthInKR: 350,
     
       },

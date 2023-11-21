@@ -2,6 +2,10 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('User');
+    return queryInterface.dropTable('Receiver');
+    return queryInterface.dropTable('Sender');
+    return queryInterface.dropTable('Package');
+
   },
 
   down: (queryInterface, Sequelize) => {
