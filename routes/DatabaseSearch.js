@@ -46,3 +46,19 @@ router.post('/insertReceiver', async (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/search', function(req, res) {
+  const id = req.query.id;
+  db.Package.findOne({ where: { PackageID: id } })
+    .then(package => {
+      if (package) {
+        res.render('searchResults', { package: package });
+      } else {
+        res.send('No package found with that ID');
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.send('An error occurred');
+    });
+});
