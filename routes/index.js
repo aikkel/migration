@@ -1,6 +1,7 @@
 const express = require('express');
 const indexRouter = express.Router();
 const { Sender, Receiver, Package } = require('../models');
+const { where } = require('sequelize');
 
 /* GET home page. */
 indexRouter.get('/', async (req, res, next) => {
@@ -84,13 +85,19 @@ indexRouter.get('/search', async (req, res, next) => {
 
 indexRouter.post('/search', async (req, res, next) => {
   try {
-    console.log(req.body.id)
-    const package = await Package.findAll(); // renamed from 'Sender' to 'senders'
+    //console.log(req.body.id)
+    const package = await Package.findOne({
+      where: {
+        PackageID: req.body.id
+      }
+    }); 
+  // renamed from 'Sender' to 'senders'
    // console.log(senders, receivers, packages); // updated to use 'senders'
+   console.log(package)
     res.render('searchResult', { title: 'Brugere i systemet', package }); // updated to use 'senders'
   } catch (error) {
     console.error('Error fetching senders:', error);
-    res.status(500).json({ error: 'Failed to fetch senders' });
+    res.status(500).json({ error: 'Failed to fetch package' });
   }
 });
 
