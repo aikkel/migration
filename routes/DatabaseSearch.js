@@ -52,7 +52,7 @@ router.get('/search', function(req, res) {
   db.Package.findOne({ where: { PackageID: id } })
     .then(package => {
       if (package) {
-        res.render('searchResults', { package: package });
+        res.render('searchResult', { package: package });
       } else {
         res.send('No package found with that ID');
       }
