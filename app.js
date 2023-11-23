@@ -3,13 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var Sender = require('./models/Sender'); // Corrected path
-var Receiver = require('./models/Receiver'); // Corrected path
-const indexRouter = require('./routes/index'); // replace './routes/index' with the actual path to index.js
-
+var Sender = require('./models/Sender');
+var Receiver = require('./models/Receiver');
+var Package = require('./models/Package');
+const indexRouter = require('./routes/index');
 const frontpageRouter = require('./routes/frontpage');
 const databaseSearchRouter = require('./routes/DatabaseSearch');
-
 
 var app = express();
 
@@ -26,44 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', frontpageRouter);
 app.use('/data', databaseSearchRouter);
 app.use('/', indexRouter);
-
-// Handle the form submission and insert data into the Sender table
-app.post('/insertSender', async (req, res) => {
-  try {
-    const { FirstName, LastName, Email, Phonenumber, Address } = req.body;
-    const newSender = await Sender.create({
-      FirstName: FirstName,
-      LastName: LastName,
-      Email: Email,
-      PhoneNumber: Phonenumber,
-      Address: Address,
-    });
-
-    res.json(newSender);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to insert sender' });
-  }
-});
-
-// Handle the form submission and insert data into the Receiver table
-app.post('/insertReceiver', async (req, res) => {
-  try {
-    const { FirstName, LastName, Email, Phonenumber, Address } = req.body;
-    const newReceiver = await Receiver.create({
-      FirstName: FirstName,
-      LastName: LastName,
-      Email: Email,
-      PhoneNumber: Phonenumber,
-      Address: Address,
-    });
-
-    res.json(newReceiver);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to insert receiver' });
-  }
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

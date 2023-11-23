@@ -1,11 +1,24 @@
 const { DataTypes } = require('sequelize');
+const crypto = require('crypto');
+
+// Function to create a unique order number
+function createOrderNumber() {
+  const salt = crypto.randomBytes(16).toString('hex');
+  const uniqueBytes = crypto.randomBytes(4);
+  const uniqueIdentifier = parseInt(uniqueBytes.toString('hex'), 16);
+  const saltedData = `${salt}-${uniqueIdentifier}`;
+  const hash = crypto.createHash('sha256').update(saltedData).digest('hex');
+  return `ORD-${hash.slice(0, 8).toUpperCase()}`;
+}
 
 module.exports = (sequelize) => {
   const Package = sequelize.define('Package', {
-    PackageID: { // replace 'SenderId' with the actual name of your primary key column
-      type: DataTypes.INTEGER,
+    PackageID: {
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: () => createOrderNumber(),
+      allowNull: false,
+      autoIncrement: false,
     },
     WeightInKG: {
       type: DataTypes.INTEGER,
@@ -23,18 +36,17 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    Content: {
+    PackageContent: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     WorthInKR: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   }, {
-    freezeTableName: true, // This option prevents Sequelize from pluralizing the table name
-    timestamps: false, // This option disables the 'createdAt' and 'updatedAt' fields
-
+    freezeTableName: true,
+    timestamps: false,
   });
 
   return Package;
